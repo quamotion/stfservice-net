@@ -3,6 +3,7 @@ image: Visual Studio 2017
 before_build:
   - cmd: dotnet restore
   - cmd: npm install --ignore-scripts
+  - cmd: '%USERPROFILE%\.nuget\packages\google.protobuf.tools\3.4.0\tools\windows_x64\protoc.exe --csharp_out=stfservice-net\ -I=stfservice-net\ stfservice-net\wire.proto'
 
 build_script:
   - cmd: dotnet build -c Release --version-suffix r%APPVEYOR_BUILD_NUMBER%
