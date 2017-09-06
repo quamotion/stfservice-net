@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 
 package jp.co.cyberagent.stf.proto;
 
@@ -36,55 +36,55 @@ enum MessageType {
 }
 
 message Envelope {
-    optional uint32 id = 1;
-    required MessageType type = 2;
-    required bytes message = 3;
+    uint32 id = 1;
+    MessageType type = 2;
+    bytes message = 3;
 }
 
 // Events
 
 message AirplaneModeEvent {
-    required bool enabled = 1;
+    bool enabled = 1;
 }
 
 message BatteryEvent {
-    required string status = 1;
-    required string health = 2;
-    required string source = 3;
-    required uint32 level = 4;
-    required uint32 scale = 5;
-    required double temp = 6;
-    required double voltage = 7;
+    string status = 1;
+    string health = 2;
+    string source = 3;
+    uint32 level = 4;
+    uint32 scale = 5;
+    double temp = 6;
+    double voltage = 7;
 }
 
 message BrowserApp {
-    required string name = 1;
-    required string component = 2;
-    required bool selected = 3;
-    required bool system = 4;
+    string name = 1;
+    string component = 2;
+    bool selected = 3;
+    bool system = 4;
 }
 
 message BrowserPackageEvent {
-    required bool selected = 1;
+    bool selected = 1;
     repeated BrowserApp apps = 2;
 }
 
 message ConnectivityEvent {
-    required bool connected = 1;
-    optional string type = 2;
-    optional string subtype = 3;
-    optional bool failover = 4;
-    optional bool roaming = 5;
+    bool connected = 1;
+    string type = 2;
+    string subtype = 3;
+    bool failover = 4;
+    bool roaming = 5;
 }
 
 message PhoneStateEvent {
-    required string state = 1;
-    required bool manual = 2;
-    optional string operator = 3;
+    string state = 1;
+    bool manual = 2;
+    string operator = 3;
 }
 
 message RotationEvent {
-    required int32 rotation = 1;
+    int32 rotation = 1;
 }
 
 // Service
@@ -93,24 +93,24 @@ message GetVersionRequest {
 }
 
 message GetVersionResponse {
-    required bool success = 1;
-    optional string version = 2;
+    bool success = 1;
+    string version = 2;
 }
 
 message SetKeyguardStateRequest {
-    required bool enabled = 1;
+    bool enabled = 1;
 }
 
 message SetKeyguardStateResponse {
-    required bool success = 1;
+    bool success = 1;
 }
 
 message SetWakeLockRequest {
-    required bool enabled = 1;
+    bool enabled = 1;
 }
 
 message SetWakeLockResponse {
-    required bool success = 1;
+    bool success = 1;
 }
 
 enum ClipboardType {
@@ -118,52 +118,52 @@ enum ClipboardType {
 }
 
 message SetClipboardRequest {
-    required ClipboardType type = 1;
-    optional string text = 2;
+    ClipboardType type = 1;
+    string text = 2;
 }
 
 message SetClipboardResponse {
-    required bool success = 1;
+    bool success = 1;
 }
 
 message GetClipboardRequest {
-    required ClipboardType type = 1;
+    ClipboardType type = 1;
 }
 
 message GetClipboardResponse {
-    required bool success = 1;
-    optional ClipboardType type = 2;
-    optional string text = 3;
+    bool success = 1;
+    ClipboardType type = 2;
+    string text = 3;
 }
 
 message GetBrowsersRequest {
 }
 
 message GetBrowsersResponse {
-    required bool success = 1;
-    required bool selected = 2;
+    bool success = 1;
+    bool selected = 2;
     repeated BrowserApp apps = 3;
 }
 
 message GetDisplayRequest {
-    required int32 id = 1;
+    int32 id = 1;
 }
 
 message GetDisplayResponse {
-    required bool success = 1;
-    optional int32 width = 2;
-    optional int32 height = 3;
-    optional float xdpi = 4;
-    optional float ydpi = 5;
-    optional float fps = 6;
-    optional float density = 7;
-    optional int32 rotation = 8;
-    optional bool secure = 9;
+    bool success = 1;
+    int32 width = 2;
+    int32 height = 3;
+    float xdpi = 4;
+    float ydpi = 5;
+    float fps = 6;
+    float density = 7;
+    int32 rotation = 8;
+    bool secure = 9;
 }
 
 message Property {
-    required string name = 1;
-    required string value = 2;
+    string name = 1;
+    string value = 2;
 }
 
 message GetPropertiesRequest {
@@ -171,24 +171,24 @@ message GetPropertiesRequest {
 }
 
 message GetPropertiesResponse {
-    required bool success = 1;
+    bool success = 1;
     repeated Property properties = 2;
 }
 
 message DoIdentifyRequest {
-    required string serial = 1;
+    string serial = 1;
 }
 
 message DoIdentifyResponse {
-    required bool success = 1;
+    bool success = 1;
 }
 
 message GetAccountsRequest {
-    optional string type = 1;
+    string type = 1;
 }
 
 message GetAccountsResponse {
-    required bool success = 1;
+    bool success = 1;
     repeated string accounts = 2;
 }
 
@@ -196,16 +196,16 @@ message DoAddAccountMenuRequest {
 }
 
 message DoAddAccountMenuResponse {
-    required bool success = 1;
+    bool success = 1;
 }
 
 message DoRemoveAccountRequest {
-    required string type = 1;
-    optional string account = 2;
+    string type = 1;
+    string account = 2;
 }
 
 message DoRemoveAccountResponse {
-    required bool success = 1;
+    bool success = 1;
 }
 
 enum RingerMode {
@@ -215,51 +215,51 @@ enum RingerMode {
 }
 
 message SetRingerModeRequest {
-    required RingerMode mode = 1;
+    RingerMode mode = 1;
 }
 
 message SetRingerModeResponse {
-    required bool success = 1;
+    bool success = 1;
 }
 
 message GetRingerModeRequest {
 }
 
 message GetRingerModeResponse {
-    required bool success = 1;
-    required RingerMode mode = 2;
+    bool success = 1;
+    RingerMode mode = 2;
 }
 
 message SetWifiEnabledRequest {
-    required bool enabled = 1;
+    bool enabled = 1;
 }
 
 message SetWifiEnabledResponse {
-    required bool success = 1;
+    bool success = 1;
 }
 
 message GetWifiStatusRequest {
 }
 
 message GetWifiStatusResponse {
-    required bool success = 1;
-    required bool status = 2;
+    bool success = 1;
+    bool status = 2;
 }
 
 message GetSdStatusRequest {
 }
 
 message GetSdStatusResponse {
-    required bool success = 1;
-    required bool mounted = 2;
+    bool success = 1;
+    bool mounted = 2;
 }
 
 message SetMasterMuteRequest {
-    required bool enabled = 1;
+    bool enabled = 1;
 }
 
 message SetMasterMuteResponse {
-    required bool success = 1;
+    bool success = 1;
 }
 
 // Agent
@@ -271,26 +271,26 @@ enum KeyEvent {
 }
 
 message KeyEventRequest {
-    required KeyEvent event = 1;
-    required int32 keyCode = 2;
-    optional bool shiftKey = 3;
-    optional bool ctrlKey = 4;
-    optional bool altKey = 5;
-    optional bool metaKey = 6;
-    optional bool symKey = 7;
-    optional bool functionKey = 8;
-    optional bool capsLockKey = 9;
-    optional bool scrollLockKey = 10;
-    optional bool numLockKey = 11;
+    KeyEvent event = 1;
+    int32 keyCode = 2;
+    bool shiftKey = 3;
+    bool ctrlKey = 4;
+    bool altKey = 5;
+    bool metaKey = 6;
+    bool symKey = 7;
+    bool functionKey = 8;
+    bool capsLockKey = 9;
+    bool scrollLockKey = 10;
+    bool numLockKey = 11;
 }
 
 message DoTypeRequest {
-    required string text = 1;
+    string text = 1;
 }
 
 message SetRotationRequest {
-    required int32 rotation = 1;
-    required bool lock = 2;
+    int32 rotation = 1;
+    bool lock = 2;
 }
 
 message DoWakeRequest {
