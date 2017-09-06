@@ -5,6 +5,7 @@ package jp.co.cyberagent.stf.proto;
 option java_outer_classname = "Wire";
 
 enum MessageType {
+    MESSAGETYPE_NONE = 0;
     DO_IDENTIFY = 1;
     DO_KEYEVENT = 2;
     DO_TYPE = 3;
@@ -114,6 +115,7 @@ message SetWakeLockResponse {
 }
 
 enum ClipboardType {
+    CLIPBOARDTYPE_NONE = 0;
     TEXT = 1;
 }
 
