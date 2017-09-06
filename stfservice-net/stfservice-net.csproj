@@ -4,4 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)\..\node_modules\stf\vendor\STFService\STFService.apk"/>
+  </ItemGroup>
 </Project>
