@@ -7,6 +7,9 @@ before_build:
 build_script:
   - cmd: dotnet build -c Release --version-suffix r%APPVEYOR_BUILD_NUMBER%
 
+test_script:
+  - cmd: dotnet test stfservice-net.tests
+
 on_success:
   - cmd: dotnet pack -c Release --version-suffix r%APPVEYOR_BUILD_NUMBER%
   - ps: Push-AppveyorArtifact "stfservice-net\bin\Release\stfservice-net.1.0.0-r$($env:APPVEYOR_BUILD_NUMBER).nupkg"
